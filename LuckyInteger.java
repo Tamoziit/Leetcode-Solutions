@@ -4,7 +4,7 @@ import java.util.HashMap;
 class LuckyInteger {
     /* 
      * Approach 1:
-     * O(NlgN) [sorting] + 3.O(MAX) [MAX = max integer in array]
+     * O(NlgN) [sorting] + 2.O(MAX) [MAX = max integer in array] + O(N) [HashMap building]
      * = O(NlgN + MAX) --> Time
      * O(MAX) --> Space
      */

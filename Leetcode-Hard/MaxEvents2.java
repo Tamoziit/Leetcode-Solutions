@@ -7,7 +7,7 @@ public class MaxEvents2 {
 
         int i, j, l = events.length;
         int[] p = new int[l + 1];
-        getCompatibleArray(events, p); // Time = O(lgN) --> Binary search approach
+        getCompatibleArray(events, p); // Time = O(NlgN) --> Binary search approach Array Builder
         int[][] dp = new int[l + 1][k + 1];
 
         /*
@@ -32,13 +32,13 @@ public class MaxEvents2 {
 
     // Finding Previous Compatible non-overlapping events: Binary-search-based p[]
     // builder
-    public void getCompatibleArray(int[][] events, int[] p) {
+    public void getCompatibleArray(int[][] events, int[] p) { // O(N*lgN)
         int n = events.length;
-        for (int i = 1; i <= n; i++) {
+        for (int i = 1; i <= n; i++) { // O(N)
             int lo = 0, hi = i - 1;
             // Finding the largest lo in [0..i-1] such that events[lo-1].end <
             // events[i-1].start
-            while (lo < hi) {
+            while (lo < hi) { // O(lgN) --> Binary Search for each N event
                 int mid = (lo + hi + 1) / 2;
                 if (events[mid - 1][1] < events[i - 1][0]) {
                     lo = mid;
@@ -63,6 +63,6 @@ public class MaxEvents2 {
 }
 
 /*
- * Time = O(NlgN) + O(lgN) + O(N*k) = O(NlgN + N*k)
+ * Time = O(NlgN) + O(NlgN) + O(N*k) = O(NlgN + N*k)
  * Space = O(N) + O(N*k) = O(N*k)
  */

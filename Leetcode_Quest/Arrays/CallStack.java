@@ -46,8 +46,8 @@ class CallStack {
 
         int[] res = ob.exclusiveTime(n, logs);
         for (int i = 0; i < n; i++) {
-            System.err.print(res[i] + " ");
+            System.out.print(res[i] + " ");
         }
-        System.err.println();
+        System.out.println();
     }
 }

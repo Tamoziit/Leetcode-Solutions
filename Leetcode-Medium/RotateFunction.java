@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class RotateFunction {
     /**
      * Time: O(n ^ 2)
@@ -43,16 +47,41 @@ public class RotateFunction {
         return max;
     }
 
-    public static void main(String[] args) {
-        int[] nums = { 4, 3, 2, 6 };
-        int max;
+    @SuppressWarnings("ConvertToTryWithResources")
+    public int[] readTestCase() throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader("../testCases/LC3742.txt"));
+        String line = br.readLine();
+        br.close();
 
+        String[] parts = line.trim().split("\\s+");
+
+        int n = parts.length;
+        int[] nums = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            nums[i] = Integer.parseInt(parts[i]);
+        }
+
+        return nums;
+    }
+
+    public static void main(String[] args) throws IOException {
         RotateFunction ob = new RotateFunction();
+
+        int[] nums = { 4, 3, 2, 6 };
+        int[] nums_TLE = ob.readTestCase();
+        int max;
 
         max = ob.maxRotateFunction1(nums);
         System.out.println("Method 1: " + max);
 
         max = ob.maxRotateFunction2(nums);
         System.out.println("Method 2: " + max);
+
+        max = ob.maxRotateFunction1(nums_TLE);
+        System.out.println("Method 1 for TLE test case: " + max);
+
+        max = ob.maxRotateFunction2(nums_TLE);
+        System.out.println("Method 2 for TLE test case: " + max);
     }
 }

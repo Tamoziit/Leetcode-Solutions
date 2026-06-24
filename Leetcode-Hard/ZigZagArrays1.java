@@ -77,5 +77,14 @@ public class ZigZagArrays1 {
 
         System.out.println("TEST CASE 3:");
         System.out.println("Valid arrays = " + ob.zigZagArrays(100, 1000, 10109));
+
+        System.out.println("TEST CASE 4:");
+        System.out.println("Valid arrays = " + ob.zigZagArrays(29, 1, 5));
+
+        System.out.println("TEST CASE 5:");
+        System.out.println("Valid arrays = " + ob.zigZagArrays(5890648, 49, 51));
+
+        System.out.println("TEST CASE 6:");
+        System.out.println("Valid arrays = " + ob.zigZagArrays(789888, 2, 40));
     }
 }

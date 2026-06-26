@@ -61,7 +61,7 @@ public class SubArrayMajority1 {
     }
 
     /**
-     * Prefix Sum Frequency - Optimal
+     * Prefix Sum Frequency - Optimal: Fenwick Tree
      * Time: O(n)
      * Space: O(2n + 1) = O(n) [Frequency array]
      */

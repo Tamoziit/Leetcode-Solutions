@@ -6,7 +6,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class MaxLenSubstringWith2Occurences {
+public class MaxLenSubstringWith2Occurrences {
 
     public int maximumLengthSubstring(String s) {
         int start = 0, end = 0, max = 0;

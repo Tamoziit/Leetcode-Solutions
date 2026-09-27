@@ -1,0 +1,38 @@
+/**
+ * Stack Implementation
+ * Time: O(N^2)
+ * Space: O(N)
+ */
+import java.util.Stack;
+
+public class ReverseSubstringParenthesis {
+
+    public String reverseParentheses(String s) {
+        Stack<Integer> openParenthesesIndices = new Stack<>();
+        StringBuilder result = new StringBuilder();
+
+        for (char currentChar : s.toCharArray()) {
+            switch (currentChar) {
+                case '(' -> // Store the current length as the start index for future reversal
+                    openParenthesesIndices.push(result.length());
+                case ')' -> {
+                    int start = openParenthesesIndices.pop();
+                    // Reverse the substring between the matching parentheses
+                    reverse(result, start, result.length() - 1);
+                }
+                default -> // Append non-parenthesis characters to the processed string
+                    result.append(currentChar);
+            }
+        }
+
+        return result.toString();
+    }
+
+    private void reverse(StringBuilder sb, int start, int end) {
+        while (start < end) {
+            char temp = sb.charAt(start);
+            sb.setCharAt(start++, sb.charAt(end));
+            sb.setCharAt(end--, temp);
+        }
+    }
+}
